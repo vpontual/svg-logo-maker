@@ -13,7 +13,7 @@ function validateLength(input) {
 
 // Function to ensure that the user enters a valid color name or hex code
 function validateColor(input) {
-  if (input.length > 3) {
+  if (!input.match(/^#[0-9A-F]{6}$/i)) {
     return "Please enter a valide color name or hex code";
   }
   return true;
@@ -47,3 +47,24 @@ const questions = [
     validate: validateColor,
   },
 ];
+
+// Function to generate and save SVG based on user input
+async function generateAndSaveSVG() {
+  try {
+    const answers = await inquirer.prompt(questions);
+    const svg = generateSVG(
+      answers.text,
+      answers.text_color,
+      answers.shapes,
+      answers.usage
+    );
+
+    await fs.promises.writeFile("logo.svg", svg);
+
+    console.log("Generated logo.svg");
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+generateAndSaveSVG();
