@@ -2,7 +2,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 // Importing shape classes and generation function
-const shapes = require("./lib/shapes.js");
+const makeShapes = require("./lib/shapes.js");
 
 // Function to ensure the user does enter more than 3 characters
 function validateLength(input) {
@@ -68,7 +68,12 @@ function generateAndSaveSVG() {
     .prompt(questions)
     .then((answers) => {
       const { text, text_color, shapes, usage } = answers;
-      const svgContent = shapes.generateSVG(text, text_color, shapes, usage);
+      const svgContent = makeShapes.generateSVG(
+        text,
+        text_color,
+        shapes,
+        usage
+      );
 
       fs.writeFile("./examples/logo.svg", svgContent, (err) => {
         if (err) throw err;
