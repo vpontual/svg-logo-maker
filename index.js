@@ -13,10 +13,23 @@ function validateLength(input) {
 
 // Function to ensure that the user enters a valid color name or hex code
 function validateColor(input) {
-  if (!input.match(/^#[0-9A-F]{6}$/i)) {
-    return "Please enter a valide color name or hex code";
+  const hexRegex = /^#[0-9A-F]{6}$/i;
+  const validColorNames = [
+    "red",
+    "green",
+    "blue",
+    "black",
+    "white",
+    "yellow",
+    "orange",
+    "purple",
+    "pink",
+    "gray",
+  ];
+  if (hexRegex.test(input)) {
+    return true;
   }
-  return true;
+  return validColorNames.includes(input.toLowerCase());
 }
 
 // Array of questions for user input
