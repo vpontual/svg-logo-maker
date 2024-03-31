@@ -62,22 +62,6 @@ const questions = [
 ];
 
 // Function to generate and save SVG based on user input
-async function generateAndSaveSVG() {
-  try {
-    const answers = await inquirer.prompt(questions);
-    const svg = generateSVG(
-      answers.text,
-      answers.text_color,
-      answers.shapes,
-      answers.usage
-    );
-
-    await fs.promises.writeFile("logo.svg", svg);
-
-    console.log("Generated logo.svg");
-  } catch (error) {
-    console.error(error);
-  }
-}
+function generateAndSaveSVG() {}
 
 generateAndSaveSVG();
