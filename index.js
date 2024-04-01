@@ -1,6 +1,7 @@
 // Including needed packages for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
+
 // Importing shape classes and generation function
 const makeShapes = require("./lib/shapes.js");
 
@@ -77,7 +78,7 @@ function generateAndSaveSVG() {
 
       fs.writeFile("./examples/logo.svg", svgContent, (err) => {
         if (err) throw err;
-        console.log("SVG file generated successfully!");
+        console.log("Generated logo.svg!");
       });
     })
     .catch((error) => {
