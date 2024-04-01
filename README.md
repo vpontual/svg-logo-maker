@@ -44,3 +44,5 @@ The following image shows a mock-up of the generated SVG given the following inp
 ## Video
 
 Here is a link to a short clip showcasing the app running and creating the SVG file specified by a user:
+
+https://youtu.be/MMCESGYM5MQ
